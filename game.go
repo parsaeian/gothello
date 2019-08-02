@@ -46,7 +46,7 @@ func (b *Board) Draw() (string, error) {
 			isWhite := 1 << squareNumber & b.whiteSquares
 
 			if isBlack != 0 && isWhite != 0 {
-				return "", fmt.Errorf("erro in draw board, cell %d", squareNumber)
+				return "", fmt.Errorf("error in draw board, cell %d", squareNumber)
 			}
 			if isBlack != 0 {
 				s += " *"

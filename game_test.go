@@ -23,7 +23,7 @@ func TestGame(t *testing.T) {
 		_, err := NewGame(&player1, &player2)
 
 		if err != nil {
-			t.Errorf("can not create new game!, %d", err)
+			t.Errorf("can not create new game!, %v", err)
 		}
 	})
 
@@ -35,13 +35,13 @@ func TestGame(t *testing.T) {
 		got, err := game.board.Draw()
 
 		if err != nil {
-			t.Fatalf("erro in create new game's board, %d!", err)
+			t.Fatalf("error in draw new game's board, %v!", err)
 		}
 
 		want := initBoard
 
 		if got != want {
-			t.Errorf("want %s got %s", want, got)
+			t.Errorf("want %s, got %s", want, got)
 		}
 	})
 }
