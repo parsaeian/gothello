@@ -11,8 +11,6 @@ type Board struct {
 }
 
 type Game struct {
-	p1    *Player
-	p2    *Player
 	board *Board
 }
 
@@ -23,16 +21,9 @@ func NewBoard() (b *Board) {
 	return
 }
 
-func NewGame(p1, p2 *Player) (Game, error) {
-	if p1 == nil {
-		return Game{}, fmt.Errorf("player1 can't be nil")
-	}
-	if p2 == nil {
-		return Game{}, fmt.Errorf("player1 can't be nil")
-	}
-
+func NewGame() (Game, error) {
 	board := NewBoard()
-	return Game{p1, p2, board}, nil
+	return Game{board}, nil
 }
 
 // Draw returns visual representation of the Board useful for debugging.

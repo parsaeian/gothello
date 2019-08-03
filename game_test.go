@@ -18,9 +18,7 @@ const initBoard = `
 
 func TestGame(t *testing.T) {
 	t.Run("create new game", func(t *testing.T) {
-		player1 := Player{}
-		player2 := Player{}
-		_, err := NewGame(&player1, &player2)
+		_, err := NewGame()
 
 		if err != nil {
 			t.Errorf("can not create new game!, %v", err)
@@ -28,9 +26,7 @@ func TestGame(t *testing.T) {
 	})
 
 	t.Run("show new game's board", func(t *testing.T) {
-		player1 := Player{}
-		player2 := Player{}
-		game, _ := NewGame(&player1, &player2)
+		game, _ := NewGame()
 
 		got, err := game.board.Draw()
 
