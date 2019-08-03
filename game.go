@@ -18,7 +18,8 @@ const (
 )
 
 type Game struct {
-	turn Turn
+	notation Notation
+	turn  Turn
 	board *Board
 }
 
@@ -31,7 +32,9 @@ func NewBoard() (b *Board) {
 
 func NewGame() (Game, error) {
 	board := NewBoard()
-	return Game{blackTurn, board}, nil
+	return Game{notation:AlgebraicNotation{},
+		turn:blackTurn,
+		board:board}, nil
 }
 
 // Draw returns visual representation of the Board useful for debugging.
@@ -48,9 +51,9 @@ func (b *Board) Draw() (string, error) {
 				return "", fmt.Errorf("error in draw board, cell %d", squareNumber)
 			}
 			if isBlack != 0 {
-				s += " *"
+				s += " *" // BlackSquare
 			} else if isWhite != 0 {
-				s += " #"
+				s += " #" // WhiteSquare
 			} else {
 				s += " -"
 			}
