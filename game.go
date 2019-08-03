@@ -10,7 +10,15 @@ type Board struct {
 	whiteSquares uint64
 }
 
+type Turn bool
+
+const (
+	blackTurn Turn = false
+	whiteTurn Turn = true
+)
+
 type Game struct {
+	turn Turn
 	board *Board
 }
 
@@ -23,7 +31,7 @@ func NewBoard() (b *Board) {
 
 func NewGame() (Game, error) {
 	board := NewBoard()
-	return Game{board}, nil
+	return Game{blackTurn, board}, nil
 }
 
 // Draw returns visual representation of the Board useful for debugging.
