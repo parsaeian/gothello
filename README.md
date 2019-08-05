@@ -1,1 +1,1 @@
-othello package for go
+Othello (Reversi) package for go
